@@ -1,0 +1,100 @@
+@import 'var'
+
+*
+    box-sizing: border-box
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap')
+
+html
+    margin: 0
+    padding: 0
+
+body
+    margin: 0
+    padding: 0
+    width: 100%
+    color: $black
+    font-style: normal
+    font-family: $font-mont
+    background-color: $bg-color
+    overflow: auto
+
+img
+    max-width: 100%
+    height: auto
+
+h1, h2, h3, h4, h5, p
+    margin: 0
+    padding: 0
+
+a
+    text-decoration: none
+    color: $black
+    cursor: pointer
+
+ul, li
+    margin: 0
+    padding: 0
+    list-style: none
+
+// li
+//     cursor: pointer
+
+button
+    padding: 0
+    font-family: inherit
+    cursor: pointer
+    border: none
+    background-color: transparent
+
+button:focus
+    border: none
+    outline: none
+
+input, textarea
+    //appearance: none !important
+    padding: 0
+    border-radius: 0
+    border: none
+    background-color: transparent
+//input[type=checkbox]
+    //display: none
+
+input:focus, textarea:focus
+    outline: none
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+    -webkit-appearance: none
+
+fieldset
+    padding: 0 !important
+    margin: 0
+    border: none
+
+.container
+    padding: 0px 40px 0 100px
+
+.button
+    display: flex
+    align-items: center
+    justify-content: center
+    background-color: $green
+    box-shadow: $box-shadow
+    border: 3px solid transparent
+    color: $bg-color
+    font-size: 26px
+    line-height: 28px
+    +font-comf-700
+    +br190
+    &:hover, &:active
+        background-color: $bg-color
+        border: 3px solid $green
+        color: $green
+    &:disabled
+        border: 3px solid transparent
+        background-color: $grey
+        box-shadow: none
+        color: #000000
+        +font-comf-400
