@@ -1,0 +1,47 @@
+@import '../../styles/var'
+
+.block
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 100%
+    border-bottom: $border
+    &:hover
+        background-color: $green
+        cursor: pointer
+        color: $grey
+    &_active
+        background-color: #addf84
+.block:hover .button
+    background-color: inherit
+    color: $grey
+.item
+    //word-break: break-all
+    white-space: pre-wrap
+    text-align: center
+    overflow: hidden
+.id
+    width: 60px
+.data
+    width: 90px
+    //text-align: left
+.name
+    width: 200px
+    text-align: left
+.phone
+    width: 110px
+    text-align: left
+.email
+    width: 200px
+    text-align: left
+.city
+    width: 150px
+    text-align: left
+.sum
+    width: 70px
+.title
+    font-weight: 600
+.button
+    width: 90px
+    height: 100%
+    text-align: center

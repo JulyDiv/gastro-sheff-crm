@@ -1,39 +1,48 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from "react";
-import styles from "./OrderItem.module.sass";
+import React, { useState, useContext } from "react";
+import Link from "next/link";
+import styles from "./UserItem.module.sass";
 import axios from "axios";
+import { AppContext } from "../../context/AppContext";
 
-export const OrderItem = ({ getData, order }) => {
-  // const onDelete = (data) => {
-  //   console.log(data);
-  //   axios
-  //     .delete(
-  //       `${process.env.NEXT_PUBLIC_API_HOST}/user/${item.id}order/${item.id}`
-  //     )
-  //     .then(({ data }) => {
-  //       console.log(data);
-  //       getData();
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error.message);
-  //     });
-  // };
+export const UserItem = ({ item }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const {
+    getUser,
+    orders,
+    filterOrder,
+    setFilterOrder,
+  } = useContext(AppContext);
+
+  const onDelete = (data) => {
+    console.log(data);
+    axios
+      .delete(`${process.env.NEXT_PUBLIC_API_HOST}/users/${item.id}`)
+      .then(({ data }) => {
+        console.log(data);
+        getUser();
+      })
+      .catch(function (error) {
+        console.log(error.message);
+      });
+  };
+
+  const onClick = (id) => {
+    let newOrders = [...orders].filter((item) => item.userId === id);
+    setIsOpen(true);
+    setFilterOrder(newOrders);
+    console.log(newOrders);
+    isOpen ? setIsOpen(false) : setIsOpen(true);
+  };
+
+  //console.log(isOpen);
 
   return (
     <>
-      <div key={order.id} style={{ borderBottom: "1px solid black" }}>
-        <p>{order.name}</p>
-        <p>{order.phone}</p>
-        <br />
-        {/* <p>{date}</p> */}
-        <p>{order.dateOrder ? order.dateOrder : ""}</p>
-        <br />
-        <p>{order.program}</p>
-        <br />
-      </div>
-      {/* <div
+      <div
         key={item ? item.id : ""}
         className={`${styles.block}`}
+        onClick={() => onClick(item.id)}
       >
         {item ? (
           <span className={`${styles.item} ${styles.id}`}>{item.id}</span>
@@ -102,13 +111,43 @@ export const OrderItem = ({ getData, order }) => {
           </span>
         )}
         {item ? (
-          <button className={`${styles.item} ${styles.button}`}>Открыть</button>
+          <button
+            className={`${styles.item} ${styles.button}`}
+            //onClick={() => setIsOpen(true)}
+          >
+            Открыть
+          </button>
         ) : (
+          // <Link
+          //   href={`/users/${item.id}`}
+          //   target="_blank"
+          //   className={`${styles.item} ${styles.button}`}
+          // >
+          //   Открыть
+          // </Link>
           <span className={`${styles.item} ${styles.button} ${styles.title}`}>
-            Печать
+            Открыть
           </span>
         )}
-      </div> */}
+        {/* {item ? (
+          <button className={`${styles.item} ${styles.button}`} onClick={() => onClick()}>Открыть</button>
+        ) : (
+          <span className={`${styles.item} ${styles.button} ${styles.title}`}>
+            Открыть
+          </span>
+        )} */}
+      </div>
+      {isOpen && (
+        <>
+          <p>Open</p>
+          {filterOrder.map(({ name, id, program }) => (
+            <div key={id} style={{ height: "50px" }}>
+              <p>{name}</p>
+              <p>{program}</p>
+            </div>
+          ))}
+        </>
+      )}
     </>
   );
 };
