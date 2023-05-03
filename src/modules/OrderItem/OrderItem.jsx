@@ -2,8 +2,10 @@
 import React, { useState } from "react";
 import styles from "./OrderItem.module.sass";
 import axios from "axios";
+import { ItemTable } from "../../components/ItemTable/ItemTable";
 
 export const OrderItem = ({ getData, order }) => {
+
   // const onDelete = (data) => {
   //   console.log(data);
   //   axios
@@ -21,94 +23,18 @@ export const OrderItem = ({ getData, order }) => {
 
   return (
     <>
-      <div key={order.id} style={{ borderBottom: "1px solid black" }}>
-        <p>{order.name}</p>
-        <p>{order.phone}</p>
-        <br />
-        {/* <p>{date}</p> */}
-        <p>{order.dateOrder ? order.dateOrder : ""}</p>
-        <br />
-        <p>{order.program}</p>
-        <br />
+      <div key={order.id} className={`${styles.wrapper}`}>
+        <ItemTable
+          id={order.id}
+          date={order.dateOrder}
+          name={order.name}
+          phone={order.phone}
+          program={order.program}
+          sum={order.sum}
+          button1="Подробнее"
+          button2="Печать"
+        />
       </div>
-      {/* <div
-        key={item ? item.id : ""}
-        className={`${styles.block}`}
-      >
-        {item ? (
-          <span className={`${styles.item} ${styles.id}`}>{item.id}</span>
-        ) : (
-          <span className={`${styles.item} ${styles.id} ${styles.title}`}>
-            Номер заказа
-          </span>
-        )}
-        {item ? (
-          <span className={`${styles.item} ${styles.data}`}>{item.date}</span>
-        ) : (
-          <span className={`${styles.item} ${styles.data} ${styles.title}`}>
-            Дата
-          </span>
-        )}
-        {item ? (
-          <span className={`${styles.item} ${styles.name}`}>{item.name}</span>
-        ) : (
-          <span className={`${styles.item} ${styles.name} ${styles.title}`}>
-            Имя
-          </span>
-        )}
-        {item ? (
-          <span className={`${styles.item} ${styles.phone}`}>{item.phone}</span>
-        ) : (
-          <span className={`${styles.item} ${styles.phone} ${styles.title}`}>
-            Телефон
-          </span>
-        )}
-        {item ? (
-          <span className={`${styles.item} ${styles.city}`}>{item.city}</span>
-        ) : (
-          <span className={`${styles.item} ${styles.city} ${styles.title}`}>
-            Город
-          </span>
-        )}
-        {item ? (
-          <span className={`${styles.item} ${styles.sum}`}>{item.total}Р</span>
-        ) : (
-          <span className={`${styles.item} ${styles.sum} ${styles.title}`}>
-            Сумма
-          </span>
-        )}
-        {item ? (
-          <button
-            className={`${styles.item} ${styles.button}`}
-            onClick={() => onDelete()}
-          >
-            Удалить
-          </button>
-        ) : (
-          <span className={`${styles.item} ${styles.button} ${styles.title}`}>
-            Удалить
-          </span>
-        )}
-        {item ? (
-          <button
-            className={`${styles.item} ${styles.button}`}
-            onClick={() => onDelete()}
-          >
-            Изменить
-          </button>
-        ) : (
-          <span className={`${styles.item} ${styles.button} ${styles.title}`}>
-            Изменить
-          </span>
-        )}
-        {item ? (
-          <button className={`${styles.item} ${styles.button}`}>Открыть</button>
-        ) : (
-          <span className={`${styles.item} ${styles.button} ${styles.title}`}>
-            Печать
-          </span>
-        )}
-      </div> */}
     </>
   );
 };

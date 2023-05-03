@@ -5,6 +5,7 @@ import { AppContext } from "../../context/AppContext";
 import { OrderItem } from "../OrderItem/OrderItem";
 import { Input } from "../../components/Input/Input";
 import { OrderList } from "../OrderList/OrderList";
+import { HeaderTable } from "../HeaderTable/HeaderTable";
 
 export const Order = () => {
   const { orders, getData, isLoading } = useContext(AppContext);
@@ -51,6 +52,7 @@ export const Order = () => {
             
           </button>
         </div> */}
+        <button onClick={() => setIsActive(false)}>X</button>
         <div>
           <Input
             button="Поиск по имени"
@@ -102,6 +104,15 @@ export const Order = () => {
             </div>
           ) : (
             <>
+              <HeaderTable
+                id="№"
+                date="Дата"
+                name="Клиент"
+                phone="Телефон"
+                program="Программа"
+                sum="Сумма"
+                className={`${styles.title}`}
+              />
               {!isActive ? (
                 <>
                   <OrderList filter={orders} />

@@ -18,7 +18,8 @@ export const Input = ({
 
   return (
     <>
-      <button onClick={() => onActive(name)}>{button}</button>
+      {button && <button onClick={() => onActive(name)}>{button}</button>}
+      {/* {button && <button onClick={() => setIsActive(false)}>X</button>} */}
       {isActive === name && (
         <>
           <input
@@ -27,7 +28,6 @@ export const Input = ({
             placeholder={placeholder}
             onChange={(e) => onChange(e.target.value)}
           />
-          {/* <button onClick={() => setIsActive(false)}>X</button> */}
         </>
       )}
     </>
