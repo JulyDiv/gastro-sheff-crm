@@ -7,9 +7,9 @@ import { AppContext } from "../../context/AppContext";
 export default function UserPage() {
   const { users, getUser, isLoading } = useContext(AppContext);
 
-  useEffect(() => {
-    getUser();
-  }, []);
+  // useEffect(() => {
+  //   getUser();
+  // }, []);
 
   return (
     <div>

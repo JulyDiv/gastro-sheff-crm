@@ -1,0 +1,59 @@
+@import '../../styles/var'
+
+.wrapper
+    margin-bottom: 5px
+    &:last-child
+        margin-bottom: 0px
+// .block
+//     position: relative
+.button
+    display: flex
+    justify-content: space-between
+    flex-direction: column
+    padding: 10px 20px
+    width: 100%
+    background-color: $bgColor
+    box-shadow: 0px 0px 20px rgba(86, 86, 86, 0.781)
+    color: $black
+    font-size: 16px
+    line-height: 133.8%
+    +font-mont-500
+    //+br20
+    &:hover
+        background-color: $green
+        color: $bgColor
+        font-weight: 400
+    &_active
+        //font-size: 16px
+        //color: $bgColor
+        //box-shadow: $box-shadow
+        background-color: $green
+        //background-color:#64d36f65
+.button:hover .arrow
+.block
+    display: flex
+    justify-content: space-between
+    width: 100%
+.arrow
+    // position: absolute
+    // top: 12px
+    // right: 20px
+    margin: 1px 0px 0 0
+    width: 10px
+    height: 20px
+    // background-image: url(../../../public/img/arrow-black.svg)
+    // background-repeat: no-repeat
+    // background-position-x: center
+    // background-position-y: 4px
+    &_active
+        margin: 1px 0px 0 0
+        transform: rotate(90deg)
+.text
+    //padding: 20px 10px
+    padding: 15px 17px 14px 0px
+    width: 100%
+    //background-color: $bg-color
+    //border-radius: 30px 30px 30px 30px
+    font-size: 12px
+    +font-mont-400
+    text-align: left

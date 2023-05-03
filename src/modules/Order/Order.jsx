@@ -15,6 +15,7 @@ export const Order = () => {
   const [dataTo, setDataTo] = useState("");
   const [filterName, setFilterName] = useState("");
   const [filterPhone, setFilterPhone] = useState("");
+  const [filterNumber, setFilterNumber] = useState("");
 
   const filterNameOrder = orders.filter((item) => {
     return item.name.toLowerCase().includes(filterName.toLowerCase());
@@ -26,6 +27,10 @@ export const Order = () => {
 
   const filterDateOrder = orders.filter((item) => {
     return item.date.includes(dataFrom) | item.date.includes(dataTo);
+  });
+
+  const filterNumberOrder = orders.filter((item) => {
+    return item.id.includes(filterNumber);
   });
 
   //console.log(isActive);
@@ -73,6 +78,18 @@ export const Order = () => {
             placeholder="Поиск по номеру телефона"
             className={styles.input}
             onChange={setFilterPhone}
+            isActive={isActive}
+            setIsActive={setIsActive}
+          />
+        </div>
+        <div>
+          <Input
+            button="Поиск по номеру заказа"
+            name="Поиск по номеру заказа"
+            type="number"
+            placeholder="Поиск по номеру заказа"
+            className={styles.input}
+            onChange={setFilterNumber}
             isActive={isActive}
             setIsActive={setIsActive}
           />
@@ -127,6 +144,9 @@ export const Order = () => {
                   )}
                   {isActive === "Поиск по дате" && (
                     <OrderList filter={filterDateOrder} />
+                  )}
+                  {isActive === "Поиск по номеру заказа" && (
+                    <OrderList filter={filterNumberOrder} />
                   )}
                 </>
               )}

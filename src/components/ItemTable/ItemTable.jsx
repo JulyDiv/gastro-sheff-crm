@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./ItemTable.module.sass";
 
-export const ItemTable = ({ item, className, id, date, name, phone, program, sum, button1, button2, onDelete }) => {
+export const ItemTable = ({ className, id, date, name, phone, program, sum, button1, button2, onDelete }) => {
 
   return (
     <>
@@ -38,7 +38,7 @@ export const ItemTable = ({ item, className, id, date, name, phone, program, sum
       </button>
       <button
         className={`${styles.item} ${className} ${styles.button}`}
-        onClick={button2 === "Удалить" ? () => onDelete() : ""}
+        onClick={button2 === "Удалить" ? () => onDelete() : null}
       >
         {button2}
       </button>

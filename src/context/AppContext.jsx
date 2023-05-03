@@ -17,12 +17,9 @@ const AppWrapper = ({ children }) => {
   const [user, setUser] = useState();
   const [filterOrder, setFilterOrder] = useState(orders);
   const [isLoading, setIsLoading] = useState(false);
-  //const [user, setUser] = useState();
+  const [isActiveButton, setIsActiveButton] = useState(false);
 
   const getUser = () => {
-    // users.forEach((item) => {
-    //   setUser(item);
-    // });
     axios
       .get(`${process.env.NEXT_PUBLIC_API_HOST}/users`)
       .then(({ data }) => {
@@ -38,34 +35,16 @@ const AppWrapper = ({ children }) => {
     getUser();
   }, []);
 
-  //console.log(users);
-  //console.log(user);
-
-  //console.log(user);
-
   const getData = (id) => {
-    //setIsLoading(true);
-
-    // users.filter(({ id }) => (
-    //   setUser(id)
-    // ));
-
-    // console.log(user);
-
     axios
-      //.get(`${process.env.NEXT_PUBLIC_API_HOST}/users/${userId.id}/order`)
       .get(`${process.env.NEXT_PUBLIC_API_HOST}/orders`)
       .then(({ data }) => {
         setOrders(data);
-        //setIsLoading(false);
       })
       .catch((error) => {
         console.error(error.message);
       });
   };
-
-  //console.log(user);
-  //console.log(orders);
 
   useEffect(() => {
     getData();
@@ -105,6 +84,8 @@ const AppWrapper = ({ children }) => {
     setUser,
     filterOrder,
     setFilterOrder,
+    isActiveButton,
+    setIsActiveButton
   };
 
   return (
