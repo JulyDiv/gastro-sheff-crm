@@ -9,7 +9,8 @@ export const Navbar = () => {
 
   const { isActiveButton, setIsActiveButton } = useContext(AppContext);
 
-  console.log(isActiveButton);
+  //console.log(isActiveButton);
+
   return (
     <>
       <nav className={styles.navbar}>

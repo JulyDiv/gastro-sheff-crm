@@ -3,9 +3,10 @@ import Head from 'next/head';
 import { AppContext } from '../context/AppContext';
 import { Order } from '../modules/Order/Order';
 import { User } from '../modules/User/User';
+import { Page } from '../modules/Page/Page';
 
 export default function Home() {
-  const { isActiveButton, orders, isLoading, getData, getUser, users } = useContext(AppContext);
+  const { isActiveButton, orders, users } = useContext(AppContext);
   return (
     <div>
       <Head>
@@ -15,11 +16,20 @@ export default function Home() {
       </Head>
       <div className="container">
         {isActiveButton === "Заказы" && (
+          <Page item={orders} button="Добавить заказ" title="Заказы" />
+        )}
+        {isActiveButton === "Клиенты" && (
+          <Page item={users} button="Добавить клиента" title="Клиенты" />
+        )}
+        {/* {isActiveButton === "Заказы" && (
           <Order orders={orders} isLoading={isLoading} getData={getData} />
         )}
         {isActiveButton === "Клиенты" && (
           <User users={users} isLoading={isLoading} getUser={getUser} />
         )}
+        {isActiveButton === "Отчеты" && (
+          <Order orders={orders} isLoading={isLoading} getData={getData} />
+        )} */}
       </div>
     </div>
   );

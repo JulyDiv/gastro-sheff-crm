@@ -1,16 +1,28 @@
-import React, { useState } from "react";
-import styles from "./ItemTable.module.sass";
+import React, { useContext } from "react";
 
-export const ItemTable = ({ className, id, date, name, phone, program, sum, button1, button2, onDelete }) => {
+import styles from "./ItemTable.module.sass";
+import Link from "next/link";
+
+export const ItemTable = ({ className, id, dateOrder, dateUser, date, name, phone, program, sum, button, onDelete }) => {
 
   return (
     <>
       {id && (
         <span className={`${styles.item} ${className} ${styles.id}`}>{id}</span>
       )}
-      {date && (
+      {/* {date && (
         <span className={`${styles.item} ${className} ${styles.date}`}>
           {date}
+        </span>
+      )} */}
+      {dateOrder && (
+        <span className={`${styles.item} ${className} ${styles.date}`}>
+          {dateOrder}
+        </span>
+      )}
+      {dateUser && (
+        <span className={`${styles.item} ${className} ${styles.date}`}>
+          {dateUser}
         </span>
       )}
       {name && (
@@ -33,15 +45,19 @@ export const ItemTable = ({ className, id, date, name, phone, program, sum, butt
           {sum}
         </span>
       )}
-      <button className={`${styles.item} ${className} ${styles.button}`}>
-        {button1}
-      </button>
-      <button
-        className={`${styles.item} ${className} ${styles.button}`}
-        onClick={button2 === "Удалить" ? () => onDelete() : null}
-      >
-        {button2}
-      </button>
+      {dateOrder ? (
+        <button className={`${styles.item} ${className} ${styles.button}`}>
+          {button}
+        </button>
+      ) : (
+        <Link
+          href={`/${id}`}
+          target="_blank"
+          className={`${styles.item} ${className} ${styles.button}`}
+        >
+          {button}
+        </Link>
+      )}
     </>
   );
 };

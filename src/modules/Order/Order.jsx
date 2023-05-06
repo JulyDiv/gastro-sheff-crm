@@ -38,14 +38,14 @@ export const Order = () => {
   return (
     <>
       <div className={styles.order}>
-        <div className={styles.header}>
+        {/* <div className={styles.header}>
           <h1 className={styles.title}>Заказы</h1>
           <div className={styles.box}>
             <button className={`${styles.button} button`} onClick={() => {}}>
               Добавить заказ
             </button>
           </div>
-        </div>
+        </div> */}
         {/* <div className={styles.tab}>
           <button className={`${styles.tab_item}`} onClick={() => onClickAll()}>
             
@@ -57,7 +57,7 @@ export const Order = () => {
             
           </button>
         </div> */}
-        <button onClick={() => setIsActive(false)}>X</button>
+        {/* <button onClick={() => setIsActive(false)}>X</button>
         <div>
           <Input
             button="Поиск по имени"
@@ -112,7 +112,7 @@ export const Order = () => {
             isActive={isActive}
             setIsActive={setIsActive}
           />
-        </div>
+        </div> */}
         <br />
         <div className={styles.wrapper}>
           {isLoading ? (

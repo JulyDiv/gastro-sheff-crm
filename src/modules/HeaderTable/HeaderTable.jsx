@@ -46,9 +46,9 @@ export const HeaderTable = ({
       <button className={`${styles.item} ${className} ${styles.button}`}>
         {button1}
       </button>
-      <button className={`${styles.item} ${className} ${styles.button}`}>
+      {/* <button className={`${styles.item} ${className} ${styles.button}`}>
         {button2}
-      </button>
+      </button> */}
     </div>
   );
 };
