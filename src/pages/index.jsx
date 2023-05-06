@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import Head from 'next/head';
 import { AppContext } from '../context/AppContext';
-import { Order } from '../modules/Order/Order';
-import { User } from '../modules/User/User';
 import { Page } from '../modules/Page/Page';
 
 export default function Home() {
@@ -21,15 +19,6 @@ export default function Home() {
         {isActiveButton === "Клиенты" && (
           <Page item={users} button="Добавить клиента" title="Клиенты" />
         )}
-        {/* {isActiveButton === "Заказы" && (
-          <Order orders={orders} isLoading={isLoading} getData={getData} />
-        )}
-        {isActiveButton === "Клиенты" && (
-          <User users={users} isLoading={isLoading} getUser={getUser} />
-        )}
-        {isActiveButton === "Отчеты" && (
-          <Order orders={orders} isLoading={isLoading} getData={getData} />
-        )} */}
       </div>
     </div>
   );
